@@ -76,7 +76,7 @@
                     // Nothing
                 }
                 // kondisi kalau angka depan 0 dan selanjutnya bukan "titik(.)" jadinya diganti nomor terbaru
-                else if(inputOperan1.length==1&&nomor!="0"){
+                else if(inputOperan1.length==1&&inputOperan1[0]=="0"&&nomor!="0"){
                     inputOperan1[0]=nomor;
                 }
                 else{
@@ -88,7 +88,7 @@
                     // Nothing
                 }
                  // kondisi kalau angka depan 0 dan selanjutnya bukan "titik(.)" jadinya diganti nomor terbaru
-                else if(inputOperan2.length==1&&nomor!="0"){
+                else if(inputOperan2.length==1&&inputOperan2[0]=="0"&&nomor!="0"){
                     inputOperan2[0]=nomor;
                 }
                 else{
