@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="row">
+    <div class="row" >
+        
         <div class="col-sm-6 col-md-4 offset-sm-3 offset-md-4">
             <div class="card mt-4">
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row" style="text-align: center;">
                         <div class="col-sm-12">
+                            <h3 style="text-align: center;">Created by Santo Matthew</h3>
                             <input type="text" class="form-control" id="output" readonly>
                         </div>
                     </div>
@@ -69,29 +71,25 @@
 
         function operan(nomor) {
             if (!inputOperan1 || !inputOperator) {
-                if(inputOperan1.length==1&&nomor=="0"){
+                //kondisi supaya gabisa banyak angka 0 di awal
+                if(inputOperan1.length==1&&inputOperan1[0]=="0"&&nomor=="0"){
                     // Nothing
                 }
+                // kondisi kalau angka depan 0 dan selanjutnya bukan "titik(.)" jadinya diganti nomor terbaru
                 else if(inputOperan1.length==1&&nomor!="0"){
                     inputOperan1[0]=nomor;
-                }
-
-                else if(inputOperan1[inputOperan1.length-1]!="0"&&inputOperan1[inputOperan1.length-1]=="."){
-                    inputOperan1.push(nomor)
                 }
                 else{
                     inputOperan1.push(nomor)
                 }
             } else if (!!inputOperator) {
-                if(inputOperan2.length==1&&nomor=="0"){
+                //kondisi supaya gabisa banyak angka 0 di awal
+                if(inputOperan2.length==1&&inputOperan2[0]=="0"&&nomor=="0"){
                     // Nothing
                 }
+                 // kondisi kalau angka depan 0 dan selanjutnya bukan "titik(.)" jadinya diganti nomor terbaru
                 else if(inputOperan2.length==1&&nomor!="0"){
                     inputOperan2[0]=nomor;
-                }
-
-                else if(inputOperan2[inputOperan2.length-1]!="0"&&inputOperan2[inputOperan2.length-1]=="."){
-                    inputOperan2.push(nomor)
                 }
                 else{
                     inputOperan2.push(nomor)
@@ -125,23 +123,26 @@
         }
 
         function operasi() {
-            let hasil = '';
-            let parser1=parseFloat(inputOperan1.join(''))
-            let parser2=parseFloat(inputOperan2.join(''))
-            // isi jawaban kamu disini
-            if(inputOperator=='+'){
-                hasil=parser1+parser2;
+            if(inputOperan1.length!=0&&inputOperan2.length!=0){
+                let hasil = '';
+                let parser1=parseFloat(inputOperan1.join(''))
+                let parser2=parseFloat(inputOperan2.join(''))
+                // isi jawaban kamu disini
+                if(inputOperator=='+'){
+                    hasil=parser1+parser2;
+                }
+                else if(inputOperator=='-'){
+                    hasil=parser1-parser2;
+                }
+                else if(inputOperator=='*'){
+                    hasil=parser1*parser2;
+                }
+                else if(inputOperator=='/'){
+                    hasil=parser1/parser2;
+                }
+                output.value = hasil;
             }
-            else if(inputOperator=='-'){
-                hasil=parser1-parser2;
-            }
-            else if(inputOperator=='*'){
-                hasil=parser1*parser2;
-            }
-            else if(inputOperator=='/'){
-                hasil=parser1/parser2;
-            }
-            output.value = hasil;
+
         }
     </script>
 </body>
